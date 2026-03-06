@@ -1,0 +1,505 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; /* Smooth scrolling when clicking nav links */
+}
+
+body {
+    font-family: "Poppins",sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #38B6FF; /* customize background color */
+    color: white;
+    position: fixed; /* Keeps the header at the top of the viewport */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+/*
+.logo-img {
+    height: 5rem; 
+    width: 7rem;  
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05); 
+}
+*/
+/* Ajustement pour mobile */
+/*@media (max-width: 768px) {
+    .logo-img {
+        height: 70px; 
+        width: 300%;
+    }
+}*/
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin-left: 2rem;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+}
+
+.navbar ul li a:hover {
+    background-color: #555;
+    border-radius: 4px;
+}
+
+.resume-btn {
+    background-color: #007BFF; /* Example button color */
+    border-radius: 4px;
+}
+
+/* Ensure content below header is visible */
+main {
+    padding-top: 6rem; /* Add padding to account for the fixed header height */
+}
+
+.about-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+    margin-top: 0;
+    color: #007BFF; /* Example color */
+}
+
+/* Image Styling */
+.about-container img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid #007BFF;
+}
+
+/* Paragraph Styling */
+.about-container p {
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Empile le logo et la nav */
+        padding: 1rem;
+    }
+
+    .navbar ul {
+        flex-direction: column; /* Menu vertical */
+        align-items: center;
+        width: 100%;
+        padding-top: 1rem;
+    }
+
+    .navbar ul li {
+        margin: 0.5rem 0; /* Espacement vertical */
+    }
+
+    main {
+        padding-top: 10rem; /* Plus d'espace car le header devient plus grand */
+    }
+
+    .about-container {
+        width: 90%; /* Prend plus de place sur petit écran */
+        padding: 20px;
+    }
+
+    .about-container img {
+        width: 120px; /* Image légèrement plus petite */
+        height: 120px;
+    }
+}
+/* Style du burger */
+.hamburger {
+    display: none; /* Caché sur PC */
+    cursor: pointer;
+    background: none;
+    border: none;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Visible sur mobile */
+        order: 2; /* Pour le placer à droite si besoin */
+    }
+    
+    .navbar {
+        display: none; /* Cache le menu par défaut sur mobile */
+        width: 100%;
+    }
+
+    .navbar.active {
+        display: block; /* S'affiche quand on clique */
+    }
+    
+    header {
+        flex-direction: row !important; /* Garde logo et burger sur la même ligne */
+        flex-wrap: wrap;
+    }
+}
+
+.skills-section {
+    padding: 60px 20px;
+    background-color: #f4f4f4; /* Un fond gris léger pour différencier de About */
+    text-align: center;
+}
+
+.skills-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.skill-card {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    border-bottom: 4px solid #007bff;
+}
+
+.skill-card h3 {
+    margin: 15px 0;
+    color: #007bff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+}
+
+.experience-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9; /* Couleur de fond légère */
+}
+
+.experience-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.experience-container h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Ligne de temps (Timeline) */
+.experience-timeline {
+    position: relative;
+    border-left: 3px solid #007bff; /* Couleur de la ligne */
+    padding-left: 30px;
+    margin-left: 20px;
+}
+
+.experience-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+/* Point sur la ligne */
+.experience-item::before {
+    content: '';
+    position: absolute;
+    left: -38px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background-color: #007bff;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+/* En-tête de l'expérience */
+.exp-header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.exp-header h3 {
+    margin: 5px 0;
+    font-size: 1.4rem;
+    color: #222;
+}
+
+.date {
+    font-size: 0.9rem;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.company {
+    font-style: italic;
+    color: #666;
+    font-weight: 500;
+}
+
+.experience-item p {
+    line-height: 1.6;
+    color: #444;
+}
+
+/* Adaptabilité Mobile */
+@media (max-width: 600px) {
+    .experience-timeline {
+        padding-left: 20px;
+    }
+    .experience-item::before {
+        left: -28px;
+    }
+}
+
+.education-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+.education-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.education-container h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.education-card {
+    display: flex;
+    align-items: flex-start;
+    padding: 25px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+}
+
+.education-card i {
+    font-size: 2rem;
+    color: #007bff;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+.edu-info .date {
+    display: block;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.edu-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+}
+
+.school {
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.description {
+    font-size: 0.95rem;
+    color: #777;
+    line-height: 1.5;
+}
+.projects-section {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+}
+
+.projects-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.projects-container h2 {
+    text-align: center;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-image {
+    height: 180px;
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-image i {
+    font-size: 4rem;
+    color: white;
+}
+
+.project-info {
+    padding: 20px;
+}
+
+.tags {
+    margin: 10px 0;
+}
+
+.tag {
+    background: #e9ecef;
+    color: #495057;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-right: 5px;
+    font-weight: 500;
+}
+
+.project-links {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-project {
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    background: #222;
+    color: white;
+    transition: 0.3s;
+}
+
+.btn-project.outline {
+    background: transparent;
+    border: 1px solid #222;
+    color: #222;
+}
+
+.btn-project:hover {
+    opacity: 0.8;
+}
+.main-footer {
+    padding: 40px 20px;
+    background-color: #222; /* Fond sombre pour trancher avec le reste */
+    color: #ffffff;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Style des icônes sociales */
+.social-links {
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    color: #ffffff;
+    font-size: 1.8rem;
+    margin: 0 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.social-links a:hover {
+    color: #007bff; /* Change la couleur au survol */
+    transform: translateY(-3px);
+}
+
+/* Note du créateur */
+.footer-note p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+.copyright {
+    font-size: 0.8rem !important;
+    margin-top: 10px;
+    opacity: 0.5;
+}
+
+/* Optionnel : ajout d'une bordure fine en haut */
+.main-footer {
+    border-top: 4px solid #007bff;
+}
+
