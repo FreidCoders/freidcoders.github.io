@@ -457,7 +457,7 @@ h2 {
 }
 .main-footer {
     padding: 40px 20px;
-    background-color: #222; /* Fond sombre pour trancher avec le reste */
+    background-color: #007BFF; /* Fond sombre pour trancher avec le reste */
     color: #ffffff;
     text-align: center;
 }
